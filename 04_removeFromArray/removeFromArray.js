@@ -1,16 +1,17 @@
 const removeFromArray = function(original_list, ...toBeRemoved) {
-    let new_list = [];
 
-    for (let i = 0; i < original_list.length; i++) {
+    for (let i = 0; i < original_list.length;) {
         for (let j = 0; j < toBeRemoved.length; j++) {
-            if (original_list.at(i) !== toBeRemoved.at(j)) {
-                new_list.push(original_list.at(i));
+            if (original_list.at(i) === toBeRemoved.at(j)) {
+                original_list.splice(i, 1);
                 break;
+            }  else if (j == (toBeRemoved.length - 1)) {
+                i++
             };
         };
     };
 
-    return new_list
+    return original_list
 };
 
 // Do not edit below this line
